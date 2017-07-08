@@ -28,3 +28,17 @@ body.landing {
   position: relative;   /* positioning will be explained in a resource */
   left: 2rem;
 }
+
+.container {
+  max-width: 64rem;
+  margin: 0, auto;
+}
+
+@media (min-width: 640px) {
+
+  html { font-size: 112%; }
+}
+
+@media (min-width: 1024px) {
+  html{ font-size: 120%; }
+}
