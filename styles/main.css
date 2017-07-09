@@ -63,7 +63,10 @@ body.landing {
 
   .navbar-link:hover {
      color: rgb(233,50,117);
-     background-color: white;
+ }
+
+ .navbar-link:active {
+   background-color: white;
  }
 
 .container {
