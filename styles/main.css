@@ -1,7 +1,19 @@
 *, *::before, *::after {
+<<<<<<< Updated upstream
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+=======
+<<<<<<< HEAD
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+=======
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+>>>>>>> 8db3d01e790d23d5921ef55cadb2c2a1fbd634f6
+>>>>>>> Stashed changes
 }
 
 html {
@@ -27,6 +39,11 @@ body {
   left: 2rem;
   cursor: pointer;
 }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 
 .navbar .links-container {
      display: table;
@@ -106,3 +123,4 @@ body {
 .clearfix::after {
   clear: both;
 }
+>>>>>>> 8db3d01e790d23d5921ef55cadb2c2a1fbd634f6
