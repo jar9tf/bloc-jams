@@ -1,11 +1,7 @@
-var callBack = function() {
-	console.log("This is a callback");
-}
-
-var forEach = function(points)
+function forEach(array, callback)
 {
-	for (i = 0; i < points.length; i++)
+	for (i = 0; i < array.length; i++)
 	{
-		points[i].callBack;
+		callback(array[i]);
 	}
 }
