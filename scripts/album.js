@@ -82,9 +82,18 @@ var setCurrentAlbum = function album(album) {
  	return template;
  };
 
+ var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+
  window.onload = function() 
  {
  	setCurrentAlbum(albumPicasso);
+
+ 	songListContainer.addEventListener('mouseover', function(event) {
+
+
+ 		console.log(event.target);
+
+ 	});
 
  	var albums = [albumPicasso, albumMarconi, albumJustin];
  	var count = 1;
