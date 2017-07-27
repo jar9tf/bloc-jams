@@ -97,12 +97,12 @@ var getSongItem = function(element) {
 
  	if (currentlyPlayingSong === null){
  		songItem.innerHTML = pauseButtonTemplate;
- 		currentPlayingSong = songItem.getAttribute("data-song-number");
+ 		currentlyPlayingSong = songItem.getAttribute("data-song-number");
  	
 	
  	}else if (currentlyPlayingSong === songItem.getAttribute("data-song-number")) {
  		songItem.innerHTML = playButtonTemplate;
- 		currentPlayingSong = null;
+ 		currentlyPlayingSong = null;
  	
 
  	}else if (currentlyPlayingSong !== songItem.getAttribute("data-song-number")) {
