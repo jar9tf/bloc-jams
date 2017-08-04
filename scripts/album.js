@@ -48,16 +48,19 @@ var albumJustin = {
 var setCurrentAlbum = function album(album) {
 
 
- 	albumTitle.firstChild.nodeValue = album.title;										
- 	albumArtist.firstChild.nodeValue = album.artist;
- 	albumReleaseInfo.firstChild.nodeValue = album.year + " " + album.label;
- 	albumImage.setAttribute("src", album.albumArtUrl);
+ 	 $albumTitle.text(album.title);
+     $albumArtist.text(album.artist);
+     $albumReleaseInfo.text(album.year + ' ' + album.label);
+     $albumImage.attr('src', album.albumArtUrl);
 
- 	albumSongList.innerHTML = "";
+ 	$albumSongList.empty();
 
  	for (i = 0; i < album.songs.length; i++)
  	{
  		albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+ 		var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+         $albumSongList.append($newRow);
+
  	}
  };
 
