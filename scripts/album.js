@@ -47,6 +47,11 @@ var albumJustin = {
  
 var setCurrentAlbum = function album(album) {
 
+	 var $albumTitle = $('.album-view-title');
+	 var $albumArtist = $('.album-view-artist');
+     var $albumReleaseInfo = $('.album-view-release-info');
+     var $albumImage = $('.album-cover-art');
+     var $albumSongList = $('.album-view-song-list');
 
  	 $albumTitle.text(album.title);
      $albumArtist.text(album.artist);
@@ -57,7 +62,6 @@ var setCurrentAlbum = function album(album) {
 
  	for (i = 0; i < album.songs.length; i++)
  	{
- 		albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
  		var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
          $albumSongList.append($newRow);
 
@@ -150,7 +154,21 @@ var getSongItem = function(element) {
  	+ '</tr>'
  	;
 
- 	return template;
+ 	var $row = $(template);
+
+ 	var onHover = function(event) {
+ 		//Placeholder for function logic
+ 	};
+
+ 	var offHover = function(event) {
+ 		//Placeholder for function logic
+ 	};
+
+ 	$row.find('.song-item-number').click(clickHandler);
+
+ 	$row.hover(onHover, offHover);
+
+ 	return $row;
  };
 
  var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
@@ -170,6 +188,7 @@ var songRows = document.getElementsByClassName("album-view-song-item");
 
  		if (event.target.parentElement.className === 'album-view-song-item') {
              var songItem = getSongItem(event.target);
+
 
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
                songItem.innerHTML = playButtonTemplate;
