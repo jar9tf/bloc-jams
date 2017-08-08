@@ -1,4 +1,4 @@
-var albumPicasso = {
+ var albumPicasso = {
 	title: "The Colors",
 	artist: "Pablo Picasso",
 	label: "Cubism",
@@ -116,6 +116,7 @@ var getSongItem = function(element) {
 };
 
  var clickHandler = function(targetElement){
+ 	
  	var songItem = getSongItem(targetElement);
 
  	if (currentlyPlayingSong === null){
@@ -156,13 +157,29 @@ var getSongItem = function(element) {
 
  	var $row = $(template);
 
- 	var onHover = function(event) {
- 		//Placeholder for function logic
+ 	var clickHandler = function() {
+ 		//clickHandler Logic
+ 		
+
  	};
 
- 	var offHover = function(event) {
- 		//Placeholder for function logic
- 	};
+   var onHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+
+        if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(playButtonTemplate);
+        }
+    };
+
+    var offHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+
+        if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(songNumber);
+        }
+    };
 
  	$row.find('.song-item-number').click(clickHandler);
 
@@ -180,34 +197,11 @@ var songRows = document.getElementsByClassName("album-view-song-item");
 
  var currentlyPlayingSong = null;
 
- window.onload = function() 
+$(document).ready(function()
  {
  	setCurrentAlbum(albumPicasso);
 
- 	songListContainer.addEventListener('mouseover', function(event) {
-
- 		if (event.target.parentElement.className === 'album-view-song-item') {
-             var songItem = getSongItem(event.target);
-
-
-            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
-               songItem.innerHTML = playButtonTemplate;
-            }
-         }
-
- 	});
-
  	for (i = 0; i < songRows.length; i++){
- 		songRows[i].addEventListener("mouseleave", function(event) {
-
- 		var songItem = getSongItem(event.target);
-        var songItemNumber = songItem.getAttribute('data-song-number');
- 		if (songItemNumber !== currentlyPlayingSong) {
-                 songItem.innerHTML = songItemNumber;
-             }
-
- 		});
-
 
  		songRows[i].addEventListener("click", function(event){
  			clickHandler(event.target);
@@ -230,4 +224,4 @@ var songRows = document.getElementsByClassName("album-view-song-item");
  	});
  
  	
- };
+ });
