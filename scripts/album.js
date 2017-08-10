@@ -88,6 +88,9 @@ var setCurrentAlbum = function album(album) {
  			var currentParent = element.parentElement;
  		}
 
+ 		debugger;
+
+
  		while(currentParent.className !== targetClass && currentParent.className !== null) {
  			currentParent = currentParent.parentElement;
  		}
@@ -95,7 +98,10 @@ var setCurrentAlbum = function album(album) {
  		return currentParent;
  	}
  }
+
  };
+
+
 
 var getSongItem = function(element) {
     switch (element.className) {
