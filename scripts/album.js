@@ -22,6 +22,14 @@
  	}
  };
 
+var updatePlayerBarSong = function() {
+
+    $('.currently-playing .song-name').text(currentSongFromAlbum.title);
+    $('.currently-playing .artist-name').text(currentAlbum.artist);
+    $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
+
+};
+
  	var albumTitle = document.getElementsByClassName("album-view-title")[0];					// Why did these declarations have to come out of the setCurrentAlbum function?
  	var albumArtist = document.getElementsByClassName("album-view-artist")[0];
  	var albumReleaseInfo = document.getElementsByClassName("album-view-release-info")[0];
@@ -54,10 +62,13 @@
 		// Switch from Play -> Pause button to indicate new song is playing.
 		$(this).html(pauseButtonTemplate);
 		currentlyPlayingSongNumber = songNumber;
-	} else if (currentlyPlayingSong === songNumber) {
+		currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+
+	} else if (currentlyPlayingSongNumber === songNumber) {
 		// Switch from Pause -> Play button to pause currently playing song.
 		$(this).html(playButtonTemplate);
 		currentlyPlayingSongNumber = null;
+		currentSongFromAlbum = null;
 	}
 };
 
