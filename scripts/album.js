@@ -26,6 +26,32 @@
      return album.songs.indexOf(song);
  };
 
+ var nextSong = function(){
+ 	
+ 	var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
+
+ 	currentSongIndex++;
+
+ 	if (currentSongIndex >= currentAlbum.songs.length){
+ 		currentSongIndex = 0;
+ 	}
+
+ 	var lastSongNumber = currentlyPlayingSongNumber;
+
+ 	currentlyPlayingSongNumber = currentSongIndex + 1;
+
+ 	currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+
+ 	updatePlayerBarSong();
+
+ 	var $nextSongNumberCell = $(".song-item-number[data-song-number='" + currentlyPlayingSongNumber + "']");
+ 	var $lastSongNumberCell = $(".song-item-number[data-song-number='" + lastSongNumber + "']");
+
+ 	$nextSongNumberCell.html(pauseButtonTemplate);
+ 	$lastSongNumberCell.html(lastSongNumber);
+
+ };
+
 var updatePlayerBarSong = function() {
 
 
