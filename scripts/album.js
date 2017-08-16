@@ -99,7 +99,7 @@ var updatePlayerBarSong = function() {
  {
  	var template = 
  	  '<tr class ="album-view-song-item">'
- 	+		'<td class="song-item-number" data-song-number=" ' + songNumber + '">' + songNumber + '</td>'
+ 	+		'<td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
  	+		'<td class="song-item-title">' + songName + '</td>'
  	+		'<td class="song-item-duration">' + songLength + '</td>'
  	+ '</tr>'
@@ -111,6 +111,7 @@ var updatePlayerBarSong = function() {
 	var songNumber = parseInt($(this).attr('data-song-number'));
 
 	if (currentlyPlayingSongNumber !== null) {
+
 		// Revert to song number for currently playing song because user started playing new song.
 		var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
 		currentlyPlayingCell.html(currentlyPlayingSongNumber);
