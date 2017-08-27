@@ -89,6 +89,11 @@ var updatePlayerBarSong = function() {
 var setSong = function(songNumber){
 	currentlyPlayingSongNumber = parseInt(songNumber);
 	currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+    currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
+         // #2
+         formats: [ 'mp3' ],
+         preload: true
+     });
 };
 
 var getSongNumberCell = function(number){
@@ -172,6 +177,7 @@ var getSongNumberCell = function(number){
  var currentlyPlayingSongNumber = null;
  var currentAlbum = null;
  var currentSongFromAlbum = null;
+ var currentSoundFile = null;
 
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
