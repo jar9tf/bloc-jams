@@ -148,7 +148,7 @@ var getSongNumberCell = function(number){
 
 	} else if (currentlyPlayingSongNumber === songNumber) {
 
-		if (currentSoundFile.isPaused()) {
+        if (currentSoundFile.isPaused()) {
 
             $(this).html(pauseButtonTemplate);
             $('.main-controls .play-pause').html(playerBarPauseButton);
@@ -194,20 +194,6 @@ var getSongNumberCell = function(number){
     }
  }
 
- var toggleFromPlayerBar = function(){
- 	if (currentSoundFile.isPaused() != null ) {					//Does this logic look correct?
- 		if($('.main-controls .play-pause').html(playerBarPlayButton)) {
- 			if (currentSoundFile.isPaused()) {
-
-            $(this).html(pauseButtonTemplate);
-            $('.main-controls .play-pause').html(playerBarPlayButton);
-            currentSoundFile.play();
-        }
-
- 		}
- 	}
- };
-
 
  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
  var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></a>';
@@ -223,8 +209,6 @@ var getSongNumberCell = function(number){
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
 
- var $togglePlayBar = $('.main-controls .play-pause');
-
 $(document).ready(function()
  {
  	setCurrentAlbum(albumPicasso);
@@ -233,8 +217,6 @@ $(document).ready(function()
  	
  	var albums = [albumPicasso, albumMarconi, albumJustin];
  	var count = 1;
-
- 	$togglePlayBar.click(toggleFromPlayerBar());
 
  	albumImage.addEventListener("click", function(event) {
 
