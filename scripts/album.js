@@ -194,6 +194,15 @@ var getSongNumberCell = function(number){
     }
  }
 
+ var toggleFromPlayerBar = function(){              //Can you have a look at this for me?
+ 	if (currentSoundFile !== null){
+ 		if (currentSoundFile.isPaused())
+ 		{
+
+ 		}
+ 	}
+ }
+
 
  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
  var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></a>';
