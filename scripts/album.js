@@ -209,6 +209,8 @@ var getSongNumberCell = function(number){
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
 
+ var $playPause = $('.main-controls .play-pause');
+
 $(document).ready(function()
  {
  	setCurrentAlbum(albumPicasso);
@@ -217,6 +219,8 @@ $(document).ready(function()
  	
  	var albums = [albumPicasso, albumMarconi, albumJustin];
  	var count = 1;
+
+    $playPause.click(toggleFromPlayerBar);
 
  	albumImage.addEventListener("click", function(event) {
 
