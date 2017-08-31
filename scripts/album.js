@@ -194,12 +194,25 @@ var getSongNumberCell = function(number){
     }
  }
 
- var toggleFromPlayerBar = function(){              //Can you have a look at this for me?
- 	if (currentSoundFile !== null){
- 		if (currentSoundFile.isPaused())
- 		{
+ var toggleFromPlayerBar = function(){ 
 
- 		}
+ var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);             //Can you have a look at this for me?
+ 	if (currentSoundFile !== null){
+ 		if (currentSoundFile.isPaused()) {
+            // Change play button on song row to pause button.
+            // Change player bar to pause button.
+            // Play it!
+            songNumberCell.html(pauseButtonTemplate);
+            $playPause.html(playerBarPauseButton);
+            currentSoundFile.play();
+ 		} else {
+            // Change play button on song row to play button.
+            // Change player bar to play button.
+            // Pause it!
+            songNumberCell.html(playButtonTemplate);
+            $playPause.html(playerBarPlayButton);
+            currentSoundFile.pause();
+        }
  	}
  }
 
