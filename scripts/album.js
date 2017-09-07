@@ -134,8 +134,13 @@ var setupSeekBars = function(){
 };
 
 var setCurrentTimeInPlayerBar = function(currentTime){
-	$(".current-time").html(currentSoundFile.getTime());
+	$(".current-time").html(buzz.toTimer(currentSoundFile.getTime()));
 }
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+	$(".total-time").html(buzz.toTimer(currentSoundFile.getDuration()));
+}
+
  var trackIndex = function(album, song) {
      return album.songs.indexOf(song);
  };
@@ -201,7 +206,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
-
+    
 };
 
 var setSong = function(songNumber){
