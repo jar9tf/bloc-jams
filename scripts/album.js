@@ -134,7 +134,7 @@ var setupSeekBars = function(){
 };
 
 var setCurrentTimeInPlayerBar = function(currentTime){
-	console.log($(".current-time").html(currentSoundFile.getTime()));
+	$(".current-time").html(currentSoundFile.getTime());
 }
  var trackIndex = function(album, song) {
      return album.songs.indexOf(song);
