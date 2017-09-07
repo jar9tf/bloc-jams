@@ -138,7 +138,7 @@ var setCurrentTimeInPlayerBar = function(currentTime){
 }
 
 var setTotalTimeInPlayerBar = function(totalTime) {
-	$(".total-time").html(buzz.toTimer(currentSoundFile.getDuration()));
+	$(".total-time").text(buzz.toTimer(totalTime));
 }
 
  var trackIndex = function(album, song) {
@@ -191,6 +191,7 @@ var previousSong = function() {
 
     // Update the Player Bar information
     updatePlayerBarSong();
+    console.log(currentSoundFile.getDuration());
 
     $('.main-controls .play-pause').html(playerBarPauseButton);
 
@@ -206,7 +207,8 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
-    
+
+    setTotalTimeInPlayerBar(currentSoundFile.getDuration());
 };
 
 var setSong = function(songNumber){
