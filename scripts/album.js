@@ -42,6 +42,7 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
+             setCurrentTimeInPlayerBar(this.getTime());
          });
      }
  };
@@ -132,6 +133,9 @@ var setupSeekBars = function(){
      });
 };
 
+var setCurrentTimeInPlayerBar = function(currentTime){
+	console.log($(".current-time").html(currentSoundFile.getTime()));
+}
  var trackIndex = function(album, song) {
      return album.songs.indexOf(song);
  };
