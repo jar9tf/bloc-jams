@@ -134,12 +134,25 @@ var setupSeekBars = function(){
 };
 
 var setCurrentTimeInPlayerBar = function(currentTime){
-	$(".current-time").html(buzz.toTimer(currentSoundFile.getTime()));
+	$(".current-time").html(buzz.toTimer(currentSoundFile.getTime(filterTimeCode(currentTime))));
 }
 
+/* write a function that puts the total time of the song in the 
+player bar, that takes one argument to get the total time
+then pass it to the buzz.ToTimer() after wrapping .total-time
+in a jQuery call
+*/
 var setTotalTimeInPlayerBar = function(totalTime) {
-    console.log(totalTime);
-	$(".total-time").html(buzz.toTimer(totalTime));
+	$(".total-time").html(filterTimeCode(totalTime));
+}
+
+var filterTimeCode = function(timeInSeconds){
+    var minutes = parseFloat(timeInSeconds / 60);
+    var seconds = minutes % 1;
+    seconds = Math.floor(seconds * 60);
+    minutes = Math.floor(minutes);
+
+return minutes + ":" + seconds;
 }
 
  var trackIndex = function(album, song) {
@@ -248,7 +261,7 @@ var getSongNumberCell = function(number){
  	  '<tr class ="album-view-song-item">'
  	+		'<td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
  	+		'<td class="song-item-title">' + songName + '</td>'
- 	+		'<td class="song-item-duration">' + songLength + '</td>'
+ 	+		'<td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
  	+ '</tr>'
  	;
 
